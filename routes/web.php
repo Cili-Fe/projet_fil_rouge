@@ -46,4 +46,8 @@ Route::patch('/conseil_edit/{conseil}', 'ConseilController@update')->name('updat
 
 Route::get('/conseil_show/{conseil}', 'ConseilController@show_conseil')->name('conseil.show');
 
+//Route pour afficher les categories
 
+Route::get('/categorie_show/{conseil}', 'ConseilController@show_categorie')->name('categorie.show');
+
+Route::get('/detail/{conseil}', 'ConseilController@detail_categorie')->name('categorie.detail');

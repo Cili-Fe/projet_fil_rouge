@@ -10,12 +10,12 @@ class ConseilController extends Controller
     public function conseil(){
         $conseils=Conseil::latest()->get();
         $categories=Categorie_conseil::all();
-        return view("conseil", compact('conseils', 'categories'));
+        return view("visiteur.conseil", compact('conseils', 'categories'));
     }
 
     public function create_conseil(){
         $categories = Categorie_conseil::all();
-        return view("add_conseil", compact('categories'));
+        return view("admin/add_conseil", compact('categories'));
     }
 
     public function store_categorie(Request $request){
@@ -49,7 +49,7 @@ class ConseilController extends Controller
 
     public function liste_conseil(){
         $conseils = Conseil::all();
-        return view("liste_conseil" , compact('conseils'));
+        return view("admin/liste_conseil" , compact('conseils'));
     }
 // Suppression d'un conseil parti admin
     public function destroy(Conseil $conseil)
@@ -60,7 +60,7 @@ class ConseilController extends Controller
 
     public function edit_conseil(Conseil $conseil){
         $categories = Categorie_conseil::all();
-        return view("conseil_update", compact('conseil','categories'));
+        return view("admin/conseil_update", compact('conseil','categories'));
     }
 
     public function update(Request $request, Conseil $conseil)
@@ -86,7 +86,18 @@ class ConseilController extends Controller
     }
     
     public function show_conseil(Conseil $conseil){
-        return view("conseil_show"  , compact('conseil'));
+        return view("admin/conseil_show"  , compact('conseil'));
     }
 
+    public function show_categorie($categorie_conseil){
+        $categories=Categorie_conseil::all();
+        $conseils=Conseil::where('categorie_conseil_id', '=',  $categorie_conseil)->get();
+        return view('visiteur.categorie_show',compact('conseils' , 'categories'));
+    }
+
+    public function detail_categorie($categorie_conseil){
+        $categories=Categorie_conseil::all();
+        $conseils=Conseil::where('categorie_conseil_id', '=',  $categorie_conseil)->get();
+        return view('visiteur.detail',compact('conseils' , 'categories'));
+    }
 }
