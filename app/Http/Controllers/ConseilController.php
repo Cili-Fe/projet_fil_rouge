@@ -10,7 +10,8 @@ class ConseilController extends Controller
     public function conseil(){
         $conseils=Conseil::latest()->get();
         $categories=Categorie_conseil::all();
-        return view("visiteur.conseil", compact('conseils', 'categories'));
+        $recents=Conseil::latest()->take(4)->get();
+        return view("visiteur.conseil", compact('conseils', 'categories' , 'recents'));
     }
 
     public function create_conseil(){
@@ -92,12 +93,11 @@ class ConseilController extends Controller
     public function show_categorie($categorie_conseil){
         $categories=Categorie_conseil::all();
         $conseils=Conseil::where('categorie_conseil_id', '=',  $categorie_conseil)->get();
-        return view('visiteur.categorie_show',compact('conseils' , 'categories'));
+        $recents=Conseil::latest()->take(4)->get();
+        return view('visiteur.categorie_show',compact('conseils' , 'categories' , 'recents'));
     }
 
-    public function detail_categorie($categorie_conseil){
-        $categories=Categorie_conseil::all();
-        $conseils=Conseil::where('categorie_conseil_id', '=',  $categorie_conseil)->get();
-        return view('visiteur.detail',compact('conseils' , 'categories'));
+    public function detail_conseil(Conseil $conseil){
+        return view("visiteur.conseil_detail"  , compact('conseil'));
     }
 }

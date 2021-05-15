@@ -27,7 +27,7 @@ Route::get('/', 'AccueilController@index')->name('accueil');
 Route::get('/contact', 'AccueilController@contact')->name('contact');
 
 Route::get('/dash', 'DashController@dash')->name('dash');
-//Routes pour inserer, afficher, supprimer et modifier un conseil
+//Routes pour inserer, afficher, supprimer et modifier un conseil partie admin
 Route::get('/conseil', 'ConseilController@conseil')->name('conseil');
 
 Route::get('/add_conseil', 'ConseilController@create_conseil')->name('conseil.create');
@@ -47,7 +47,7 @@ Route::patch('/conseil_edit/{conseil}', 'ConseilController@update')->name('updat
 Route::get('/conseil_show/{conseil}', 'ConseilController@show_conseil')->name('conseil.show');
 
 //Route pour afficher les categories
-
 Route::get('/categorie_show/{conseil}', 'ConseilController@show_categorie')->name('categorie.show');
 
-Route::get('/detail/{conseil}', 'ConseilController@detail_categorie')->name('categorie.detail');
+//Routes pour voir les details d'un conseil coté visiteurs
+Route::get('/conseil_detail/{conseil}', 'ConseilController@detail_conseil')->name('conseil.detail');

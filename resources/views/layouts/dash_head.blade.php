@@ -195,14 +195,19 @@
             </a>
           </li>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Déconnexion
               </p>
-          </li>
-        </nav>
+          </li> --}}
+          
+              <form id="" action="{{ route('logout') }}" method="POST" class="w-100">
+                   @csrf
+                   <button class="btn btn-outline-secondary w-100" type="submit">Deconnexion</button>
+              </form>
+        </nav>0
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
