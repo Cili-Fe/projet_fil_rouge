@@ -39,9 +39,9 @@
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">John Doe</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"></a> </li>
                   <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"> <time datetime="2020-01-01">{{$conseil->created_at->format('d/m/y à H:m')}}</time> </a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12 Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html"></a></li>
                 </ul>
               </div>
 
@@ -75,7 +75,7 @@
 
             <div class="sidebar" data-aos="fade-left">
 
-              <h3 class="sidebar-title">Search</h3>
+              <h3 class="sidebar-title">Chercher</h3>
               <div class="sidebar-item search-form">
                 <form action="">
                   <input type="text">
@@ -100,7 +100,7 @@
                 <div class="post-item clearfix">
                   <img src="{{asset('storage').'/'.$recent->file}}" alt="" class="img-fluid" alt="">
                   <h4><a href="{{route('conseil.liste')}}">{{$recent->titre}}</a></h4>
-                  <time datetime="2020-01-01">{{$conseil->created_at->format('d/m/y à H:m')}}</time>
+                  <time datetime="2021-01-01">{{$conseil->created_at->format('d/m/y à H:m')}} </time>
                 </div>
               @endforeach
               </div><!-- End sidebar recent posts-->

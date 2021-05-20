@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>ESF</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -53,7 +52,7 @@
           </li>
 
           <li><a href="{{route('accueil')}}">Calendrier</a></li>
-          <li><a href="{{route('accueil')}}">Forum</a></li>
+          <li><a href="{{route('forum.vue')}}">Forum</a></li>
           <li><a href="{{route('contact')}}">Contact</a></li>
 
         </ul>
@@ -83,7 +82,7 @@
               Ouagadougou, Rue 535022<br>
               Burkina Faso <br><br>
               <strong>Phone:</strong>+226 60304013<br>
-              <strong>Email:</strong> esf@gmail.com<br>
+              <strong>Email:</strong> educationsexuelledelafemme@gmail.com<br>
             </p>
           </div>
 

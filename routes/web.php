@@ -51,3 +51,11 @@ Route::get('/categorie_show/{conseil}', 'ConseilController@show_categorie')->nam
 
 //Routes pour voir les details d'un conseil coté visiteurs
 Route::get('/conseil_detail/{conseil}', 'ConseilController@detail_conseil')->name('conseil.detail');
+
+//Routes pour mon forum
+Route::get('/page_forum', 'ForumController@affiche_forum')->name('forum.vue');
+
+Route::post('/page_forum', 'ForumController@store_message')->name('message.store');
+
+
+Route::post('/comments/{post}', 'ForumController@store_comment')->name('comment.store');

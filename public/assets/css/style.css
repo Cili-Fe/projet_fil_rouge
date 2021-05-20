@@ -2226,7 +2226,11 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: #c92fb4;;
+  background: #c92fb4;
   color: #fff;
   text-decoration: none;
+}
+.btn{
+  background: #c92fb4;
+  color: #fff;
 }
