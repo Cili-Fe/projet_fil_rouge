@@ -14,4 +14,5 @@ class DashController extends Controller
     {
         $this->middleware('auth');
     }
+
 }

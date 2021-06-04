@@ -19,7 +19,7 @@ Route::get('/f', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/homee', 'HomeController@index')->name('home');
 
 //Mes routes
 Route::get('/', 'AccueilController@index')->name('accueil');
@@ -52,10 +52,16 @@ Route::get('/categorie_show/{conseil}', 'ConseilController@show_categorie')->nam
 //Routes pour voir les details d'un conseil coté visiteurs
 Route::get('/conseil_detail/{conseil}', 'ConseilController@detail_conseil')->name('conseil.detail');
 
+
+// route pour la gestion des comptes
+Route::Resource('users', 'UserController');
+
 //Routes pour mon forum
 Route::get('/page_forum', 'ForumController@affiche_forum')->name('forum.vue');
 
 Route::post('/page_forum', 'ForumController@store_message')->name('message.store');
 
-
 Route::post('/comments/{post}', 'ForumController@store_comment')->name('comment.store');
+
+
+Route::post('/reponse/{comment}', 'ForumController@reponse')->name('reponse.store');
