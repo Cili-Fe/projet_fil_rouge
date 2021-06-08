@@ -24,12 +24,18 @@
     <section id="blog" class="blog">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-4"> 
             <div class="sidebar" data-aos="fade-left">
-              <span class="text-uppercase font-weight-bold violet">{{ Auth::user()->name }}</span>
-              <div class="sidebar-item recent-posts">
+              <div class="sidebar-item recent-posts"> 
                 <div class="post-item clearfix">
-                  <form action="{{route('message.store')}}" method="post">
+                  <div class="d-flex justify-content-between">
+                   <div></div>
+                   <div>
+                 Pseudo: <span class="font-weight-bold">{{ Auth::user()->pseudo }} </span><br>
+                  {{ Auth::user()->nom }}  {{ Auth::user()->prenom }}
+                   </div>
+                </div>
+                  <form class="mt-3" action="{{route('message.store')}}" method="post">
                     @csrf
                    <h6>Votre sujet</h6>
                     <input type="text" placeholder="le titre"  name="titre" class="form-control my-3">
@@ -80,12 +86,12 @@
                   </div>
                 </div>
                 @foreach ($comment->comments as $replyComment)
-                <div class="card bg-warning mb-2 ml-5">
+                <div class="card color mb-2 ml-5">
                   <div class="card-body">
                     {{$replyComment->content}}
                     <div class="d-flex justify-content-between align-items-center">
                       <small> repondu le {{$replyComment->created_at->format('d/m/y à H:m')}}</small> 
-                      <span class="badge badge-primary"> {{$comment->user->pseudo}}</span>
+                      <span class="badge text-white"> {{$comment->user->pseudo}}</span>
                   </div>
                   </div>
                 </div>

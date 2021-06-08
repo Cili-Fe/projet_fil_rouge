@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use App\Notifications\NewCommentPosted;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +19,7 @@ class ForumController extends Controller
     public function affiche_forum(){
         $posts=Post::latest()->paginate(3);
        
-        return view("visiteur/page_forum", compact('posts'));
+        return view("visiteur.page_forum", compact('posts'));
     }
 
     public function store_message(Request $request){
@@ -45,15 +45,12 @@ class ForumController extends Controller
         $comment=new Comment();
               $comment->content=request('content');
               $comment->user_id = auth()->user()->id;
-            //   dd($comment);
-        $post->Comments()->save($comment); 
+        $post->Comments()->save($comment);
+    
+        //notifications stocke en db
+        $post->user->notify(new NewCommentPosted($post, auth()->user()));
         return redirect()->back();
-        
 
-        // //notifications stocke en db
-        // $rendu->user->notify(New NewCommentPosted($rendu, auth()->user()));
-        
-        // return redirect()->route('', $rendu);  
     }
     public function reponse(Comment $comment){
          request()->validate([
@@ -65,8 +62,8 @@ class ForumController extends Controller
          $replyComment->user_id = auth()->user()->id;
           $comment->Comments()->save($replyComment); 
           return redirect()->back();
-         
-          
-        
     }
+
+    
+   
 }

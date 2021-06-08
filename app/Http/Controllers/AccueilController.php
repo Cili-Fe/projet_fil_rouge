@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class AccueilController extends Controller
 {
     public function index(){
-        return view("visiteur/accueil");
+        return view("visiteur.accueil");
     }
 
     public function contact(){
-        return view("visiteur/contact");
+        return view("visiteur.contact");
     }
 
     

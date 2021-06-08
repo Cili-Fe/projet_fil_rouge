@@ -29,12 +29,13 @@
           <i class="far fa-comments"></i>
         </a>
       </li>
+
+      
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
         </a>
       </li>
-     
     </ul>
     
   </nav>
@@ -48,7 +49,7 @@
         <div class="info">
           <a id="" class="" href="#" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false" v-pre>
             <img src="{{asset('dist/img/avatar.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            {{ Auth::user()->name }}
+            {{ Auth::user()->nom }}
         </a>
         </div>
       </div>

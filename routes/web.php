@@ -19,7 +19,7 @@ Route::get('/f', function () {
 
 Auth::routes();
 
-Route::get('/homee', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //Mes routes
 Route::get('/', 'AccueilController@index')->name('accueil');
@@ -59,9 +59,13 @@ Route::Resource('users', 'UserController');
 //Routes pour mon forum
 Route::get('/page_forum', 'ForumController@affiche_forum')->name('forum.vue');
 
-Route::post('/page_forum', 'ForumController@store_message')->name('message.store');
+Route::post('/message_store', 'ForumController@store_message')->name('message.store');
 
 Route::post('/comments/{post}', 'ForumController@store_comment')->name('comment.store');
 
-
 Route::post('/reponse/{comment}', 'ForumController@reponse')->name('reponse.store');
+
+Route::get('/notification/{post}/{notification}', 'ForumController@showNotification')->name('post.showNotification');
+
+//Routes pour calendrier
+Route::get('/page_calendrier', 'CalendrierController@affiche_calendrier')->name('calendrier');

@@ -49,6 +49,16 @@
                                 </li>
                             @endif
                         @else
+                        @unless (auth()->user()->unreadNotifications->isEmpty()) 
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          <span class="badge badge-warning">{{ auth()->user()->unreadNotifications->count() }}</span> Notification(s) <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            @foreach (auth()->user()->unreadNotifications as $notification)
+            <a href="" class="dropdown-item">{{ $notification->data['nom']}} a écrit sur votre sujet <strong></strong></a>
+            @endforeach
+          </div> 
+          @endunless
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
